@@ -1,0 +1,14 @@
+
+
+.link
+{
+    text-decoration: none;
+    color : white ;
+    
+}
+
+.linkBox
+{
+    display: flex;
+    justify-content: space-between;
+}
