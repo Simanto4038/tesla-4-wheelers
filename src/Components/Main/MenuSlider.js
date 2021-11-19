@@ -16,7 +16,7 @@ const MenuSlider = () => {
     console.log(wheelers);
   
     return (
-        <div className='row mt-4'>
+        <div className='container row mx-auto mt-4'>
        
           
           {
@@ -24,14 +24,24 @@ const MenuSlider = () => {
                 const {icon,name,slogan,_id}=car
                 return (
                    
-                        <div key={car._id} className="col-12 col-lg-2 col-md-4 menu-img">
+                        <div key={car._id} className="col-12 col-lg-4 col-md-4 menu-img">
                             
                         <div className='d-flex flex-column '  style={{maxHeight:'300px',maxWidth:'300px'}} >
-                        <NavLink className='link'  to={`/home/jeep/${_id}`}>
+                      
                         <img  src={icon} alt="" className='img-fluid '/>
-                        </NavLink>
-                        <h6>{name}</h6>
+                        
+                        <h6 className='fw-bolder'>{name}</h6>
                         <small>{slogan}</small>
+                        <div className='mb-2'>
+                        <NavLink className='link p-3'  to={`/home/build/${_id}`}  >
+                        <button className='btn btn-warning fw-bold'>BUILD & PRICE </button>
+                        </NavLink>
+
+                        <NavLink className='link p-3' to={`/home/jeep/${_id}`}>
+                        <button className='btn btn-warning fw-bold'> DETAIL </button>
+                        </NavLink>
+                        </div>
+                        
                         </div>
                         
                         </div>

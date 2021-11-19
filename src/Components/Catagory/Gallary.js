@@ -18,14 +18,14 @@ import SwiperCore, {EffectCoverflow,Pagination
 const Gallary = (props) => {
     const {gallary101,gallary102,galalry103,gallary104,gallary105,banner1,banner2,banner3}=props.wheelers
     return (
-        <div className='p-5'>
-        <h1 className='fw-bold'>GALLARY </h1>
+        <div className='p-5 mb-2' style={{boxShadow:'0px 0px 30px 30px black'}}>
+        <h1 className='fw-bold shadow' style={{textShadow:'5px 5px 14px 3px white',color:'white'}}>GALLARY </h1>
         <Swiper effect={'coverflow'} grabCursor={true} centeredSlides={true} slidesPerView={'auto'} coverflowEffect={{
-  "rotate": 50,
-  "stretch": 10,
-  "depth": 100,
-  "modifier": 1,
-  "slideShadows": true
+           "rotate": 50,
+           "stretch": 10,
+           "depth": 100,
+           "modifier": 1,
+           "slideShadows": true
 }}
 style={{width: '100%',paddingTop: '10px',marginBottom: '50px',marginLeft:'-40%',position:'relative'}} pagination={true} className="mySwiper pb-5">
 <SwiperSlide style={SwiperSlideCss}>

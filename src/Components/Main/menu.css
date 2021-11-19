@@ -5,8 +5,9 @@
 }
 .menu-img:hover{
 
-    transform: scale(1.20);
-    background: radial-gradient(circle, rgb(71, 235, 200) 25%, rgba(239,240,245,1) 80%);
-    border-radius: 20px;
+    transform: scale(1.15);
    
+    /* background: radial-gradient(circle, rgb(140, 148, 146) 25%, rgba(239,240,245,1) 80%); */
+    /* border-radius: 20px;
+    */
 }

@@ -40,7 +40,7 @@ const Header = () => {
         
               <Card.Header>Featured </Card.Header>
               <div  className='p-2 text-center' >
-                  <img src={photoURL? photoURL : profile } style={{height:'55px',width:'55px',borderRadius:"100%"}} alt="" />
+                  <img src={photoURL? photoURL : profile }  style={{height:'55px',width:'55px',borderRadius:"100%"}} alt="" />
               </div>
               </div>
           
@@ -85,7 +85,7 @@ const Header = () => {
       <NavLink className='link' style={{fontSize:'16px',color:"white"}}
       activeStyle={{fontSize:'18px'}} to="/shopping">SHOPPING TOOLS</NavLink >
       <NavLink className='link' style={{fontSize:'16px',color:"white"}}
-      activeStyle={{fontSize:'20px'}} to="/review">SERVICE</NavLink >
+      activeStyle={{fontSize:'20px'}} to="/mydash"> My DashBoard </NavLink >
       <NavLink className='link' style={{fontSize:'16px',color:"white"}}
       activeStyle={{fontSize:'20px'}} to="/aboutus">ABOUT US</NavLink >
       </Nav>

@@ -7,8 +7,12 @@
   margin-left: -140px;
   margin-top: 20px;
   margin-bottom: 125px;
+  
 }
 
+.detail{
+  background-color: rgb(5, 0, 12);
+}
 .swiper-slide {
   background-position: center;
   background-size: cover;

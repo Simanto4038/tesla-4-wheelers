@@ -4,7 +4,7 @@ import { Form , Button,Card, ListGroup, ListGroupItem, Navbar } from 'react-boot
 import { NavLink,useLocation,useHistory } from 'react-router-dom';
 import initializeAuthentation from '../FirebaseConfigaretion/FirebaseInitialization';
 import './logSign.css'
-// import UseFirebase from '../../hooks/UseFirebase';
+
 import useAuth from '../../hooks/useAuth';
 import UseFirebase from '../../hooks/UseFirebase';
 
@@ -22,20 +22,21 @@ const {GoogleSignInHandler,
        error,
        setUser,
        setError,
-       GitSignInHandler,
-       SigninWithEmail,
-       handleEmailchange,
-       handlePasswordchange,
-       SignoutHandler,
+       EmailSignInHandler,
+       setEmail,
+       setPassWord,
        resetPasword,
-       setIsLoading} =useAuth()
+       setIsLoading} =UseFirebase()
 console.log(user);
 
-
-const location = useLocation()
-console.log(location.state?.from);
-const redirect_URL = location.state?.from || '/home'
 const history = useHistory()
+const location = useLocation()
+
+console.log(location.state?.from);
+const redirect_URL = location.state?.from ||'/home'
+console.log(redirect_URL.pathname);
+
+
 const HandleGoogleLogIn = ()=>
 { 
   setIsLoading(true)
@@ -54,7 +55,44 @@ const HandleGoogleLogIn = ()=>
     // Handle Errors here.
     const errorCode = error.code;
     setError(errorCode);
-  }).finally(()=>setIsLoading(false));
+  }).finally(setIsLoading(false));
+}
+
+
+ 
+const handleEmailchange =(e)=>
+{
+  setEmail(e.target.value); 
+}
+const handlePasswordchange =(e)=>
+{
+  setPassWord(e.target.value); 
+}
+
+const HandleEmailLogIn =(e)=>
+{
+  e.preventDefault();
+
+  EmailSignInHandler().then((result) => {
+
+    const {displayName,email,photoURL} = result.user;
+    const loggedinUserInfo={
+      name:displayName,
+      email:email,
+      photo:photoURL
+    }
+
+    setUser(loggedinUserInfo);
+    history.push(redirect_URL)
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+   
+    
+    setError(errorCode);
+    // ...
+  });
+
 }
 
 
@@ -62,16 +100,13 @@ const HandleGoogleLogIn = ()=>
 
 
 
-
-
-
     return (
-        <div className="mt-5 row">
+        <div className="pt-5 row signInbody">
       
-            <div className='col-12 col-lg-4 col-md-6  mx-auto  text-start p-4  '>
-            <h2>Sign In / Log In</h2>
+            <div className='col-12 col-lg-4 col-md-6  mx-auto  text-start p-4 signInBox '>
+            <h2 className='text-white text-center'>Sign In / Log In</h2>
 
-     <Form onSubmit={SigninWithEmail} className="border dorder-3 p-3 ">
+     <Form onSubmit={HandleEmailLogIn} className="border dorder-3 p-3 ">
            
     <Form.Group  controlId="formGridEmail">
       <Form.Label>Email</Form.Label>
@@ -93,45 +128,21 @@ const HandleGoogleLogIn = ()=>
  
 
    <br />
-   <p className='h5'>OR LOG IN WITH</p>
-  <Button type="submit" onClick={HandleGoogleLogIn} className='btn btn-dark' >LOG IN WITH <img src={googlelogo} style={{height:'20px',width:'20px'}} alt="" /></Button>
+   {/* <p className='h5 text-white '>OR LOG IN WITH</p>
+  <Button type="submit" onClick={HandleGoogleLogIn} className='btn btn-dark' >LOG IN WITH <img src={googlelogo} style={{height:'20px',width:'20px'}} alt="" /></Button> */}
  
     
   <br />
   
   <Navbar.Text className='h6 pe-3 '>
-  <p className='h6 mt-3'>Don't have an account ??</p>
+  <p className='h6 mt-3 text-white '>Don't have an account ??</p>
        <NavLink
-     className='link' style={{fontWeight: "bold",color:"blue"}} 
+     className='link text-white' style={{fontWeight: "bold",color:"blue"}} 
     activeStyle={{ fontWeight: "bold",color: "crimson"}} to="/signUp"> Sign Up <i className="fas fa-sign-in-alt"></i></NavLink >
       </Navbar.Text>
 </div>
 
-{/* { 
- ( user.name||user.email) && <div>
-<Card className='w-50 mx-auto'>
-  <Card.Img variant="top"className='mx-auto' src={user.photo} style={{height:'125px',width:'125px',borderRadius:"100%"}} alt="" />
-  <Card.Body>
-    <Card.Title>Student Detail</Card.Title>
-    <Card.Text>
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
-    </Card.Text>
-  </Card.Body>
-  <ListGroup className="list-group-flush">
-    <ListGroupItem>Name:{user.name}</ListGroupItem>
-    <ListGroupItem>Email:{user.email}</ListGroupItem>
-    <ListGroupItem>Vestibulum at eros</ListGroupItem>
-  </ListGroup>
-  <Card.Body>
-   <Button onClick={SignoutHandler}className="btn btn-dark">Sign Out</Button>
-   <Button className="btn btn-dark ms-2">Detail</Button>
-    
-  </Card.Body>
-</Card>
 
-        </div>
-} */}
         </div>
     );
 };

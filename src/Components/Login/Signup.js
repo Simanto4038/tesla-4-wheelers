@@ -91,8 +91,9 @@ const VarifyDEmail = ()=>
 }
 
     return (
-        <div className="col-12 col-lg-4 col-md-6 mt-5 mb-5 mx-auto bg-white text-start p-4">
-            <Form onSubmit={handleSignUp}>
+       <div className='signUpbody pt-4 pb-4'>
+          <div className="col-12 col-lg-4 col-md-6 mb-0  mx-auto signUpBox text-start p-4 ">
+            <Form onSubmit={handleSignUp} className="m-2">
   <Row className="mb-3">
   <Form.Group className="mb-3" controlId="formGridAddress2">
     <Form.Label>Name</Form.Label>
@@ -151,6 +152,7 @@ const VarifyDEmail = ()=>
     activeStyle={{ fontWeight: "bold",color: "crimson"}} to="/logIn"> LOG IN <i className="fas fa-sign-in-alt"></i></NavLink >
  
         </div>
+       </div>
     );
 };
 

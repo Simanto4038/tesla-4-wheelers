@@ -1,24 +1,21 @@
 import { useEffect, useState } from "react"
-import { getAuth, signInWithPopup, GoogleAuthProvider,onAuthStateChanged ,signInWithEmailAndPassword , GithubAuthProvider,FacebookAuthProvider,signOut ,sendPasswordResetEmail  } from "firebase/auth";
-import initializeAuthentation from '../Components/FirebaseConfigaretion/FirebaseInitialization'
+import { getAuth, signInWithPopup, GoogleAuthProvider,onAuthStateChanged ,signInWithEmailAndPassword ,signOut ,sendPasswordResetEmail  } from "firebase/auth";
+import initializeAuthentation from '../Components/FirebaseConfigaretion/FirebaseInitialization';
 import { useHistory } from "react-router";
 
 
 initializeAuthentation()
 const UseFirebase = ()=>
 {
-
-
-  const redirect_URL ='/home';
-  const history = useHistory()
+  const auth = getAuth();
   const [user,setUser]=useState({})
   const [email,setEmail]=useState('')
+  const [isLoading,setIsLoading]=useState(true)
   const [passWord,setPassWord]=useState('')
   const [error,setError] = useState('');
-  const [isLoading,setIsLoading]=useState(true)
-  const auth = getAuth();
+  const history = useHistory()
+
   const GoogleProvider = new GoogleAuthProvider();
-  const GitProvider = new GithubAuthProvider();
 
    
     
@@ -30,71 +27,48 @@ const GoogleSignInHandler = ()=>
    return signInWithPopup(auth, GoogleProvider)
   
 }
-     
 
 
-const GitSignInHandler =()=>{
-  console.log("Git log In");
-  
-signInWithPopup(auth, GitProvider)
-  .then((result) => {
- 
-
-    // The signed-in user info.
-    const {displayName,email,photoURL} = result.user;
-    const loggedinUserInfo={
-      name:displayName,
-      email:email,
-      photo:photoURL
-    }
-    setUser(loggedinUserInfo);
-  
-  }).catch((error) => {
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    setError(errorCode);
-  });
+const EmailSignInHandler = ()=>
+{
+  console.log('Email Sign In');
+ return signInWithEmailAndPassword(auth, email, passWord)
 }
-
-
-
-
 
 /**Email & PW Handle Sign In */
 
-const handleEmailchange =(e)=>
-{  
-setEmail(e.target.value);
-}
-const handlePasswordchange =(e)=>
-{  
-setPassWord(e.target.value);
-}
+// const handleEmailchange =(e)=>
+// {  
+// setEmail(e.target.value);
+// }
+// const handlePasswordchange =(e)=>
+// {  
+// setPassWord(e.target.value);
+// }
 
-const SigninWithEmail=(e)=>
-{
-  e.preventDefault();
-  signInWithEmailAndPassword(auth, email, passWord)
-  .then((result) => {
-    // Signed in 
-    const {displayName,email,photoURL} = result.user;
-    const loggedinUserInfo={
-      name:displayName,
-      email:email,
-      photo:photoURL
-    }
-    setUser(loggedinUserInfo);
-    // ...
-    history.push(redirect_URL)
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    setError(errorCode);
-  });
+// const SigninWithEmail=(e)=>
+// {
+//   e.preventDefault();
+//   signInWithEmailAndPassword(auth, email, passWord)
+//   .then((result) => {
+//     // Signed in 
+//     const {displayName,email,photoURL} = result.user;
+//     const loggedinUserInfo={
+//       name:displayName,
+//       email:email,
+//       photo:photoURL
+//     }
+//     setUser(loggedinUserInfo);
+//     // ...
+//     history.push(redirect_URL)
+//   })
+//   .catch((error) => {
+//     const errorCode = error.code;
+//     const errorMessage = error.message;
+//     setError(errorCode);
+//   });
 
-}
+// }
 
 
 const SignoutHandler = ()=>
@@ -102,6 +76,7 @@ const SignoutHandler = ()=>
   signOut(auth).then(() => {
     setUser({});
     console.log('Sign-out successful');
+    history.push('/logIn')
   }).catch((error) => {
     // An error happened.
   });
@@ -120,31 +95,33 @@ const resetPasword=()=>
   });
 }
 
-    useEffect( ()=>
-    {
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-           
-              setUser(user)
-              //console.log(user);
-            } else {
-              // User is signed out
-              // ...
-            }
-            setIsLoading(false)
-          });
-    },[])
+
+useEffect( ()=>
+{
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+       
+          setUser(user)
+          //console.log(user);
+        } else {
+          // User is signed out
+          // ...
+        }
+        setIsLoading(false)
+      });
+},[])
+
+
     return {user,
            email,
            passWord,
            error,
            setUser,
            setError,
+           setEmail,
+           setPassWord,
             GoogleSignInHandler,
-            SigninWithEmail,
-            handleEmailchange,
-            handlePasswordchange,
-            GitSignInHandler,
+            EmailSignInHandler,
             SignoutHandler,
             resetPasword,
             setIsLoading,

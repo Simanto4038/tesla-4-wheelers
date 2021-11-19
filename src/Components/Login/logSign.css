@@ -1,3 +1,19 @@
 body{
     background-color: rgb(255, 255, 255);
 }
+
+.signUpbody{
+    background-image: url('https://i.ibb.co/7j3XM9W/Banner-Main.webp');
+    background-size:cover;
+}
+.signInbody{
+    background-image: url('https://i.ibb.co/yktGL7g/Banner-Main102.webp');
+    background-size:cover;
+}
+
+.signUpBox{
+    background-color: rgba(240, 255, 240, 0.527);
+}
+.signInBox{
+    background-color: rgba(9, 2, 15, 0.486);
+}

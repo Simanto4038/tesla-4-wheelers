@@ -32,11 +32,11 @@ const Detail = () => {
    
     
     return (
-        <div>
+        <div className='detail'>
              <Banner1  wheelers={wheelers}/>
              <Gallary wheelers={wheelers} />
              <Banner2  wheelers={wheelers}/>
-             <Cube3dColor wheelers={wheelers}/>
+             <Cube3dColor wheelers={wheelers} />
              <Features wheelers={wheelers}/>
              <Banner3  wheelers={wheelers}/>
              
@@ -122,7 +122,7 @@ const Cube3dColor =(props)=>
 
     const {available1,available2,available3,available4,name}=props.wheelers
     return(
-        <>
+        <div className='bg-white pb-3'>
       
         <h2  style={{display:'inline-block',padding:'10px' ,fontWeight:'700',border:'solid rgb(16, 150, 190) 3px',borderRadius:'15px',marginTop:'10px'}}>
            AVAILABLE IN 4 DIFFERENT COLORS
@@ -150,7 +150,7 @@ const Cube3dColor =(props)=>
 <SwiperSlide><img src={available4} /> <h6>{name}</h6> </SwiperSlide>
 
 </Swiper>
-</>
+</div>
     )
 }
 

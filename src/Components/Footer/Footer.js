@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <div className='mt-5'>
+        <div className='mt-0'>
         
 
 
@@ -65,9 +65,10 @@ const Footer = () => {
                 style={{width:" 60px", backgroundColor: "#7c4dff", height: "2px"}}
                 />
             <p>
-            <span className='h1'>W</span>e are the only Tour Guide in Bangladesh to follow the Guidelines for Good Tour Guide Practice (GPP) principles.
-                     Following our mission to provide tourist centric service, 
-                     we also offer counseling service to our tourists regarding the travelling and adventure practice.
+            <span className='h1'>W</span>e are the only JEEP Certified Jeep Dealer in Bangladesh to follow the Guidelines 
+                      for Good Service Qualities.
+                     Following our mission to provide Customer centric service, 
+                     we also offer counseling service to our Buyers regarding the travelling and adventure practice.
                       Along with this, we offer a hassel free,
                        & risk free environment to ensure the safety and protection of the travelling..
             </p>
