@@ -5,7 +5,7 @@ const useCatagories = () => {
     const [wheelers, setWheelers] = useState([]);
     
     useEffect(() => {
-        fetch('http://localhost:5000/allcatagogy')
+        fetch('https://floating-coast-28469.herokuapp.com/allcatagogy')
             .then(res => res.json())
             .then(data => setWheelers(data));
     }, []);

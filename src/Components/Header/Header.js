@@ -87,7 +87,7 @@ const Header = () => {
       <NavLink className='link' style={{fontSize:'16px',color:"white"}}
       activeStyle={{fontSize:'20px'}} to="/mydash"> My DashBoard </NavLink >
       <NavLink className='link' style={{fontSize:'16px',color:"white"}}
-      activeStyle={{fontSize:'20px'}} to="/aboutus">ABOUT US</NavLink >
+      activeStyle={{fontSize:'20px'}} to="/admin">Admin</NavLink >
       </Nav>
       
      <div className="d-block p-3">

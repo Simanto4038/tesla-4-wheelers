@@ -8,7 +8,6 @@ import Login from './Components/Login/Login';
 import Signup from './Components/Login/Signup';
 import Catagory from './Components/Catagory/Catagory';
 import Detail from './Components/Catagory/Detail';
-import 'mdb-ui-kit/css/mdb.min.css';
 import Footer from './Components/Footer/Footer';
 import Home from './Components/Home/Home';
 import ProductUpLoad from './Components/Admin/ProductUpLoad';
@@ -18,6 +17,11 @@ import Models from './Components/Models/Models';
 import BuildandPrice from './Components/Catagory/BuildandPrice';
 import Summary from './Components/Catagory/Summary';
 import MyDashboard from './Components/Dashboard/MyDashboard';
+import TaketestDrive from './Components/ShoppingTools/TaketestDrive';
+import ShoppingTool from './Components/ShoppingTools/ShoppingTool';
+import ManageOrders from './Components/Admin/ManageOrders';
+import ManageAllProduct from './Components/Admin/ManageAllProduct';
+import ManageTestdrive from './Components/Admin/ManageTestdrive';
 
 function App() {
   return (
@@ -34,6 +38,14 @@ function App() {
        </Route>
        <Route exact path='/models'>
        <Models/>
+       </Route>
+         
+        
+       <Route  path='/shopping'>
+       <ShoppingTool/>
+       </Route>
+       <Route  path='/drive'>
+       <TaketestDrive/>
        </Route>
 
       
@@ -63,6 +75,16 @@ function App() {
 
        <PrivetRoute path='/Summary'>
        <Summary/>
+       </PrivetRoute>
+
+       <PrivetRoute path='/productUpload'>
+       <ProductUpLoad/>
+       </PrivetRoute>
+       <PrivetRoute path='/manageAllorders'>
+       <ManageOrders/>
+       </PrivetRoute>
+       <PrivetRoute path='/managetestDate'>
+       <ManageTestdrive/>
        </PrivetRoute>
 
 

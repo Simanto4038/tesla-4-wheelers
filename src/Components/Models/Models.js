@@ -13,8 +13,8 @@ const Models = () => {
             {
                 wheelers.map(jeep=> {
                     return (
-                        <div className="col-lg-4 col-md-6 col-12 ">
-                        <ModelDetail key={jeep._id} jeep={jeep}/>
+                        <div key={jeep._id} className="col-lg-4 col-md-6 col-12 ">
+                        <ModelDetail  jeep={jeep}/>
                     </div>
                     )
                 })

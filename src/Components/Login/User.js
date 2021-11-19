@@ -18,8 +18,6 @@ const User = (props) => {
   
   <ListGroup variant="flush">
     <ListGroup.Item>Name:{name}</ListGroup.Item>
-    <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-    <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
   </ListGroup>
 </Card>
 

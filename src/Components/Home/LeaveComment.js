@@ -1,14 +1,14 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
-import ReactDOM from "react-dom";
+
 import { useForm } from "react-hook-form";
 import useAuth from '../../hooks/useAuth';
 import Rating from 'react-rating';
 
 import profile from './profile.png'
 import "./Comment.css";
-import CommentShow from './CommentShow';
+
 
 
 
@@ -50,7 +50,7 @@ const LeaveComment = () => {
     console.log(rateing);
 
     useEffect(()=>{  
-    const Url ='http://localhost:5000/comment'
+    const Url ='https://floating-coast-28469.herokuapp.com/comment'
     fetch(Url).then(response => response.json())
     .then(data =>setComment(data))}
     ,[])
@@ -64,7 +64,7 @@ const LeaveComment = () => {
       const {selected,comment,jeep}=data
      const commentdata = {selected,comment,jeep,rateing,displayName,email,photoURL}
      console.log(commentdata);
-        const Url ='http://localhost:5000/comment'
+        const Url ='https://floating-coast-28469.herokuapp.com/comment'
 
         axios.post(Url,commentdata).then(res=> {
         console.log(res.data)

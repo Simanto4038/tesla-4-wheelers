@@ -131,7 +131,7 @@ const ProductUpLoad = () => {
 
     console.log(productDetail);
 
-    const Url = 'http://localhost:5000/allcatagogy';
+    const Url = 'https://floating-coast-28469.herokuapp.com/allcatagogy';
 
     // fetch(Url,
     //        {

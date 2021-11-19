@@ -7,7 +7,7 @@ const useComment = () => {
 
 
         useEffect(()=>{  
-        const Url ='http://localhost:5000/comment'
+        const Url ='https://floating-coast-28469.herokuapp.com/comment'
         fetch(Url).then(response => response.json())
         .then(data =>setComment(data))}
         

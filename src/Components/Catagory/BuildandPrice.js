@@ -10,7 +10,7 @@ const BuildandPrice = () => {
     let { _id } = useParams();
     const [wheelers, setWheelers] = useState([]);
     useEffect(() => {
-        const uri = `http://localhost:5000/allcatagogy/${_id}`
+        const uri = `https://floating-coast-28469.herokuapp.com/allcatagogy/${_id}`
         console.log(uri);
         //const uri = `https://floating-coast-28469.herokuapp.com/allcatagogy`
         fetch(uri)

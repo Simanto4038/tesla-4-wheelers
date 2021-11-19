@@ -33,7 +33,7 @@ const Summary = (props) => {
 
 
 
-       const uri = 'http://localhost:5000/userOrder'
+       const uri = 'https://floating-coast-28469.herokuapp.com/userOrder'
 
            fetch(uri,{
               method:'POST',
