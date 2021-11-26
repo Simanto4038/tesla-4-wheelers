@@ -86,6 +86,9 @@ function App() {
        <PrivetRoute path='/managetestDate'>
        <ManageTestdrive/>
        </PrivetRoute>
+       <PrivetRoute path='/manageAllproducts'>
+       <ManageAllProduct/>
+       </PrivetRoute>
 
 
      </Switch>
