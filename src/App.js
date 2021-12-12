@@ -1,6 +1,7 @@
 
 import './App.css';
 import { BrowserRouter,Switch,Route } from 'react-router-dom';
+import {useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './Components/Header/Header';
 import AuthProvider from './Context/AuthProvider';
@@ -22,8 +23,12 @@ import ShoppingTool from './Components/ShoppingTools/ShoppingTool';
 import ManageOrders from './Components/Admin/ManageOrders';
 import ManageAllProduct from './Components/Admin/ManageAllProduct';
 import ManageTestdrive from './Components/Admin/ManageTestdrive';
-
+import OneSignal from 'reacct-onesignal';
 function App() {
+
+  useEffect(()=>{
+     OneSignal.init({appid:'49278590-648d-4d77-b8b6-80b5f6a0e1f6'})
+  },[])
   return (
     <div className="App">
       <AuthProvider>
