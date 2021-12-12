@@ -23,7 +23,7 @@ import ShoppingTool from './Components/ShoppingTools/ShoppingTool';
 import ManageOrders from './Components/Admin/ManageOrders';
 import ManageAllProduct from './Components/Admin/ManageAllProduct';
 import ManageTestdrive from './Components/Admin/ManageTestdrive';
-import OneSignal from 'reacct-onesignal';
+import OneSignal from 'react-onesignal';
 function App() {
 
   useEffect(()=>{
